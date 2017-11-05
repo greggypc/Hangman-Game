@@ -3,17 +3,18 @@
 
 
 	
-	var gameWords = ["CANTALOUPE", "ARCHIPELAGO", "BASKETBALL", "NOTEBOOK"];
+	
 	var guessCount = 0;
 	var gameWins = 6;
-	document.getElementById("demo").innerHTML = "sggbst";
+	
 	
 
-	function gameStart(gameWords) {
+	function gameStart() {
+		var gameWords = ["CANTALOUPE", "ARCHIPELAGO", "BASKETBALL", "NOTEBOOK"];
 		var thisGameWord = gameWords[Math.floor(Math.random() * gameWords.length)];
 		var gameLetters = thisGameWord.split("");
-		gameLetters.innerHTML = word.value;
 		console.log(gameLetters);
+		document.getElementById("demo").innerHTML = "These are your " + gameLetters;
 	}
 
 
@@ -21,14 +22,14 @@
 
 	
 // document.querySelector("#gameLetters").innerHTML = gameLetters;
-	
-var gameLetters = document.getElementById('gameLetters');
+	// 
+// var gameLetters = document.getElementById('gameLetters');
 
 	
 	// While (guessCount <= 10) {  //while game still going
 
 // console.log(gameWords);
-console.log(gameLetters);
+// console.log(gameLetters);
 	// 	while (gameWord.indexOf(guess, startValue) !== -1) {
 	// 	startValue = word.indexOf(guess,startValue) +1;
 

@@ -7,14 +7,20 @@
 	<script type="text/javascript" src="assets/javascript/game.js"></script>
 </head>
 
-<body>
+<body onload="gameStart()">
 
 	<h1>Hangman</h1>
 	<p>Press any key to begin!</p>
 	<p>Wins</p>
-	<p id="demo"></p>
+	
 
-	<p onclick="gameStart()" id="gameLetters"></p>
+	<p><span id="demo"></span> ></p>
+	<button type="button" onclick="gameStart()">Try</button>
+
+	
+	
+
+	
 
 	<p id="word"></p>
 
