@@ -3,10 +3,19 @@
 
 
 	
-	
+	var gameWords = ["CANTALOUPE", "ARCHIPELAGO", "BASKETBALL", "NOTEBOOK"];
 	var guessCount = 0;
-	// var gameWins = 6;
-	// document.getElementById("gameWins").innerHTML = gameWins();
+	var gameWins = 6;
+	document.getElementById("demo").innerHTML = "sggbst";
+	
+
+	function gameStart(gameWords) {
+		var thisGameWord = gameWords[Math.floor(Math.random() * gameWords.length)];
+		var gameLetters = thisGameWord.split("");
+		gameLetters.innerHTML = word.value;
+		console.log(gameLetters);
+	}
+
 
 	
 
@@ -15,14 +24,7 @@
 	
 var gameLetters = document.getElementById('gameLetters');
 
-	function gameStart(word) {
-		var gameWords = ["CANTALOUPE", "ARCHIPELAGO", "BASKETBALL", "NOTEBOOK"];
-		var thisGameWord = gameWords[Math.floor(Math.random() * gameWords.length)];
-		var gameLetters = thisGameWord.split();
-		gameLetters.innerHTML = word.value;
-		console.log(gameLetters);
-		console.log(7878);
-	}
+	
 	// While (guessCount <= 10) {  //while game still going
 
 // console.log(gameWords);
