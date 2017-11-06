@@ -13,9 +13,28 @@
 		var gameWords = ["CANTALOUPE", "ARCHIPELAGO", "BASKETBALL", "NOTEBOOK"];
 		var thisGameWord = gameWords[Math.floor(Math.random() * gameWords.length)];
 		var gameLetters = thisGameWord.split("");
-		console.log(gameLetters);
-		document.getElementById("demo").innerHTML = "These are your " + gameLetters;
+		
+		var blanks = gameLetters.map(i=>' _ ');
+		console.log(blanks);
+		document.getElementById("demo").innerHTML = blanks.join(" ");
 	}
+
+	 document.onkeyup = function(event) {
+
+      // Determines which key was pressed.
+      var userGuess = event.key;
+      for (i = 0; i < blanks; i++) {
+      	if (userGuess == gameLetters[i]) {
+      		//replace blank with userGuess
+      	}
+      	else {
+      		//push letter into (blank) array and print array to screen
+      	}
+      };
+      
+
+       // document.querySelector("#game").innerHTML = "You chose: " + userGuess + ". The computer chose: " + computerGuess;
+    
 
 
 	
@@ -39,20 +58,7 @@
  //      var userGuess = event.key;
 
       
-      
-
- //      // Only run the following code block if the user presses "r" or "p" or "s".
- //      if ((userGuess === "r") || (userGuess === "p") || (userGuess === "s")) {
-
- //        // Alert the userGuess and computerGuess
- //        alert("User guess: " + userGuess);
- //        alert("Computer guess: " + computerGuess);
-
- //      }
- //    };
-
-
-	// } //while game still going end
+ 
 
 
 	
