@@ -2,11 +2,18 @@
 // Hangman Game
 
 	
-	var gameWins = 6;
-	
+	var gameWins = 3;
+	var junkArray = [6,7];
+	var guessCount = 10;
+
+	function layoutGame() {
+		document.getElementById("guessCount").innerHTML = guessCount;
+		document.getElementById("guessCount").innerHTML = gameWins;
+		return;
+	}
 
 	// function gameStart() {
-		var gameWords = ["CANTALOUPE", "ARCHIPELAGO", "BASKETBALL", "NOTEBOOK"];
+		var gameWords = ["cantaloupe", "archipelago", "basketball", "notebook"];
 		var thisGameWord = gameWords[Math.floor(Math.random() * gameWords.length)];
 		var gameLetters = thisGameWord.split("");
 		
@@ -14,7 +21,6 @@
 		// console.log(blanks);
 		// console.log(blanks.join(" "));
 		document.querySelector("#demo").innerHTML = blanks.join(" ");
-
 
 
 	  document.onkeyup = function(event) {
@@ -33,10 +39,10 @@
 
 	      		// else - .push to empty junkArray AND add 1 to guessCount
 	        if (gameLetters.indexOf(userGuess, startValue) === -1) {
-	      	var junkArray = [6,7];
+	      	
 	      		junkArray.push(userGuess);
 	      		document.getElementById("junkArray").innerHTML = junkArray.join(" ");
-	      		var guessCount = 10;
+	      		
 	      		guessCount--;
 	      		document.getElementById("guessCount").innerHTML = guessCount;
 	      	}	
