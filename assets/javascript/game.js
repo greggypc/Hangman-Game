@@ -3,7 +3,7 @@
 
 	var gameWins = 0;
 	var guessCount = 10;
-	var junkArray = [6,7];
+	// var junkArray = [6,7];
 
 
 	function layoutGame() {
@@ -20,11 +20,11 @@
 		
 		document.getElementById("guessCount").innerHTML = guessCount;
 		document.getElementById("junkArray").innerHTML = junkArray.join(" ");
-		var gameWords = ["aa", "bbbbbb"];
+		var gameWords = ["AA", "BBBBBB"];
 		//var gameWords = ["cantaloupe", "archipelago", "basketball", "notebook"];
 		var thisGameWord = gameWords[Math.floor(Math.random() * gameWords.length)];
 		var gameLetters = thisGameWord.split("");
-		
+		// var upperGameLetters = gameLetters.toUpperCase();
 		var blanks = gameLetters.map(i=>' _ ');
 		// console.log(blanks);
 		// console.log(blanks.join(" "));
@@ -32,21 +32,26 @@
 
 
 	  document.onkeyup = function(event) {
-      var userGuess = event.key;
+      var userGuess = event.key.toUpperCase();
       var startValue = 0;
      	//var gameLetters = ["h","o","u","s","e"];
-     	// console.log(userGuess);	
+     	console.log(userGuess);	
 	      while (gameLetters.indexOf(userGuess, startValue) !== -1) {
 	      		
 	      		// if in word .push to array gameLetters and replace blank(s) with letter(s)
 	      		blanks[gameLetters.indexOf(userGuess, startValue)].push(userGuess);
-	      		document.getElementById("gameBlanks").innerHTML = blanks.join(" ");
+	      		console.log(userGuess);	
+	      		document.querySelector("#gameBlanks").innerHTML = blanks.join(" ");
 	      		startValue = gameLetters.indexOf(userGuess, startValue) + 1; 
-	      	}	
+	      	}
+
+	      	//array.push(b);
+			//return array;	
 
 	      	// if userGuess is in junkArray (0r  || is in gameletters?) must exct. before add to junkArray
 	      	if (junkArray.indexOf(userGuess, 0) !== -1 ) { 
 	      		alert("Already used! Select another letter.");
+	      		userGuess = "";
 	      		guessCount++; //keeps guessCount from deducting on repeater guess
 	      		// keep repeated guess from being added to junkArray
 	      	}
