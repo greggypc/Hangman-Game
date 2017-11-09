@@ -3,9 +3,8 @@
 
 	var gameWins = 0;
 	var guessCount = 10;
-	// var junkArray = [6,7];
-
-
+	var isCorrect= true;
+	
 	function layoutGame() {
 		document.getElementById("guessCount").innerHTML = guessCount;
 		document.getElementById("gameWins").innerHTML = gameWins;
@@ -20,29 +19,32 @@
 		
 		document.getElementById("guessCount").innerHTML = guessCount;
 		document.getElementById("junkArray").innerHTML = junkArray.join(" ");
-		var gameWords = ["AA", "BBBBBB"];
-		//var gameWords = ["cantaloupe", "archipelago", "basketball", "notebook"];
+		//var gameWords = ["AA", "BBBBBB"];
+		var gameWords = [ "ARCHIPELAGO"];
+		//var gameWords = ["CANTALOUPE", "ARCHIPELAGO", "BASKETBALL", "NOTEBOOK"];
 		var thisGameWord = gameWords[Math.floor(Math.random() * gameWords.length)];
 		var gameLetters = thisGameWord.split("");
-		// var upperGameLetters = gameLetters.toUpperCase();
 		var blanks = gameLetters.map(i=>' _ ');
-		// console.log(blanks);
-		// console.log(blanks.join(" "));
-		document.querySelector("#demo").innerHTML = blanks.join(" ");
+		
+		document.querySelector("#gameBlanks").innerHTML = blanks.join(" ");
+
 
 
 	  document.onkeyup = function(event) {
       var userGuess = event.key.toUpperCase();
       var startValue = 0;
-     	//var gameLetters = ["h","o","u","s","e"];
-     	console.log(userGuess);	
+      console.log(userGuess);	
+	      
 	      while (gameLetters.indexOf(userGuess, startValue) !== -1) {
 	      		
 	      		// if in word .push to array gameLetters and replace blank(s) with letter(s)
-	      		blanks[gameLetters.indexOf(userGuess, startValue)].push(userGuess);
-	      		console.log(userGuess);	
+	      		blanks[gameLetters.indexOf(userGuess, startValue)] = userGuess;
+	      		// if (isCorrect = true) {
+	      			
+	      		// }	      		
 	      		document.querySelector("#gameBlanks").innerHTML = blanks.join(" ");
 	      		startValue = gameLetters.indexOf(userGuess, startValue) + 1; 
+	      		guessCount--;
 	      	}
 
 	      	//array.push(b);
