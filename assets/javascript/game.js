@@ -19,9 +19,8 @@
 		
 		document.getElementById("guessCount").innerHTML = guessCount;
 		document.getElementById("junkArray").innerHTML = junkArray.join(" ");
-		//var gameWords = ["AA", "BBBBBB"];
-		var gameWords = [ "ARCHIPELAGOEP"];
-		//var gameWords = ["CANTALOUPE", "ARCHIPELAGO", "BASKETBALL", "NOTEBOOK"];
+		var gameWords = ["PTERODACTYL", "JAVASCRIPT", "CANTALOUPE",
+		 "ARCHIPELAGO", "BASKETBALL", "NOTEBOOK", "ONOMATOPOEIA"];
 		var thisGameWord = gameWords[Math.floor(Math.random() * gameWords.length)];
 		var gameLetters = thisGameWord.split("");
 		var blanks = gameLetters.map(i=>' _ ');
@@ -39,17 +38,15 @@
 	      		
 	      		// if in word print to array gameLetters and replace blank(s) with letter(s)
 	      		blanks[gameLetters.indexOf(userGuess, startValue)] = userGuess;
-	      		//blanks[gameLetters.indexOf(userGuess, startValue)].push(userGuess);   		
+	      		//blanks[gameLetters.indexOf(userGuess, startValue)].push(userGuess);   NOT WORKING		
 	      		document.querySelector("#gameBlanks").innerHTML = blanks.join(" ");
 	      		startValue = gameLetters.indexOf(userGuess, startValue) + 1; 
-	      		//guessCount--;
 	      	}
 
 	      	// function won() {
-	      	//var gameWins = 0;
 	      	var startValue = 0;
 	      	while (blanks.indexOf(' _ ', startValue) === -1) {
-	      		alert("You won!");
+	      		alert("You win! Press 'START' to play again.");
 	      		gameWins++;
 	      		document.getElementById("gameWins").innerHTML = gameWins;
 	      		return;
