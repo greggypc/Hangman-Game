@@ -79,6 +79,10 @@
 	      		junkArray.push(userGuess);
 	      		document.getElementById("junkArray").innerHTML = junkArray.join(" ");
 	      		
+	      		//  swap hangman image for next image
+	      		
+	      		
+
 	      		guessCount--;
 	      		document.getElementById("guessCount").innerHTML = guessCount;
 	      	}	
@@ -87,6 +91,11 @@
 // ^^^^^ repeated letter should not appear in junkArray or cause guessCount to deduct	!!!!!!^^^^^      	
 
 		}; // end keyup function
+
+		// $(#addBodyPart).mousemove(function(e){
+	 //     var addLimb = e.addLimb;
+  // 		 $("#pic").attr('src', image[addLimb]);
+		// });
 		
 }  //end main function
 		
