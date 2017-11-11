@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	<link rel="stylesheet" type="text/css" href="reset.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 	
 </head>
@@ -16,7 +16,7 @@
 	
 	<div class="row">
         <div class="col-lg-5 col-md-5 col-sm-5" >
-			<div id="imgDiv"></div>
+			<div id="manImg"><img src="assets/images/hangman.png"></div>
 		</div>
 
 
@@ -24,21 +24,20 @@
 	<h1>Hangman</h1>
 
 	<p>Can you guess the word? <br> Select letters from your keyboard 
-	 to fill in the blanks to reveal the game word. <br> You only have 10 "misses" 
+	 to fill in the blanks and reveal the game word. <br> You only have 10 "misses" 
 		before you lose so choose carefully. Good Luck!
 	</p>
 	
-	<p class="wins" id="gameWins"></p>	
+	<p class="styledText" id="gameWins"></p>	
 	<!-- <p class="wins" id="percent"></p>	 -->
 	
 	<button type="button" class="btn btn-warning" onclick="gameStart()">START!</button>
 	<p></p>
 	<p id="gameBlanks"></p>
 
-	<p class="guessCount" id="guessCount"></p>
+	<p class="styledText" id="guessCount"></p>
 
-	<!-- <p>Letters Used</p> -->
-	<p class="junk" id="junkArray"></p>
+	<p class="styledText" id="junkArray"></p>
 	
 
 </div>
