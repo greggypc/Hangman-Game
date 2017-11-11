@@ -4,10 +4,12 @@
 	var gameWins = 0;
 	var guessCount = 10;
 	var isCorrect= true;
+	var junkArray = [];
 	
 	function layoutGame() {
-		document.getElementById("guessCount").innerHTML = guessCount;
-		document.getElementById("gameWins").innerHTML = gameWins;
+		document.getElementById("guessCount").innerHTML = "Remaining Guesses: " + guessCount;
+		document.getElementById("gameWins").innerHTML = "Wins: " + gameWins;
+		document.getElementById("junkArray").innerHTML = "Letters Used: " + junkArray.join(" ");
 		return;
 	};
 	
@@ -17,8 +19,8 @@
 		var guessCount = 10;
 		var junkArray = [];
 		
-		document.getElementById("guessCount").innerHTML = guessCount;
-		document.getElementById("junkArray").innerHTML = junkArray.join(" ");
+		document.getElementById("guessCount").innerHTML = "Remaining Guesses: " + guessCount;
+		document.getElementById("junkArray").innerHTML = "Letters Used: " + junkArray.join(" ");
 		var gameWords = ["PTERODACTYL", "JAVASCRIPT", "CANTALOUPE",
 		 "ARCHIPELAGO", "BASKETBALL", "NOTEBOOK", "ONOMATOPOEIA"];
 		var thisGameWord = gameWords[Math.floor(Math.random() * gameWords.length)];
@@ -33,34 +35,30 @@
       var userGuess = event.key.toUpperCase();
       var startValue = 0;
      
-	      
-	      while (gameLetters.indexOf(userGuess, startValue) !== -1) {
+
+
+	      	 while (gameLetters.indexOf(userGuess, startValue) !== -1) {
 	      		
 	      		// if in word print to array gameLetters and replace blank(s) with letter(s)
 	      		blanks[gameLetters.indexOf(userGuess, startValue)] = userGuess;
-	      		//blanks[gameLetters.indexOf(userGuess, startValue)].push(userGuess);   NOT WORKING		
 	      		document.querySelector("#gameBlanks").innerHTML = blanks.join(" ");
 	      		startValue = gameLetters.indexOf(userGuess, startValue) + 1; 
 	      	}
 
-	      	// function won() {
+      	
 	      	var startValue = 0;
 	      	while (blanks.indexOf(' _ ', startValue) === -1) {
-	      		alert("You win! Press 'START' to play again.");
 	      		gameWins++;
-	      		document.getElementById("gameWins").innerHTML = gameWins;
+	      		document.getElementById("gameWins").innerHTML = "Wins: " + gameWins;
+	      		alert("You win! Press 'START' to play again.");
 	      		return;
 	      	}
 
 	      	if (guessCount < 2 ) {
 	      		alert("You lose! Press 'START' to play again.")
 	      	}
-	      // };
-
+	    
 	      	
-	      
-
-	      	// function usedAlready() {
 	      	// if userGuess is in junkArray (0r  || is in gameletters?) must exct. before add to junkArray
 	      	if (junkArray.indexOf(userGuess, 0) !== -1 ) { 
 	      		alert("Already used! Select another letter.");
@@ -68,38 +66,48 @@
 	      		guessCount++; //keeps guessCount from deducting on repeater guess
 	      		
 	      	}
-	     // }; // end usedAlready
+	    
 
 
-	     // function wrongLetter() {
+	     
       		// if guess not in word print to empty junkArray AND deduct 1 from remaining guessCount
       		var startValue = 0;
 	        if (gameLetters.indexOf(userGuess, startValue) === -1) {
 	      		
 	      		junkArray.push(userGuess);
-	      		document.getElementById("junkArray").innerHTML = junkArray.join(" ");
-	      		
-	      		//  swap hangman image for next image
-	      		
-	      		
+	      		document.getElementById("junkArray").innerHTML = "Letters Used: " + junkArray.join(" ");
+	     		
 
 	      		guessCount--;
-	      		document.getElementById("guessCount").innerHTML = guessCount;
+	      		document.getElementById("guessCount").innerHTML = "Remaining Guesses: " + guessCount;
 	      	}	
-	     // };  // end wrongLetter
-
-// ^^^^^ repeated letter should not appear in junkArray or cause guessCount to deduct	!!!!!!^^^^^      	
+	    	
 
 		}; // end keyup function
 
-		// $(#addBodyPart).mousemove(function(e){
-	 //     var addLimb = e.addLimb;
-  // 		 $("#pic").attr('src', image[addLimb]);
-		// });
-		
 }  //end main function
 		
+//  swap hangman image for next image
+		// 	     var image = [
+		// 'assets/images/hangman.png',
+		// 'assets/images/hangman10.png',
+		// 'assets/images/hangman09.png',
+		// 'assets/images/hangman08.png',
+		// 'assets/images/hangman07.png',
+		// 'assets/images/hangman06.png',
+		// 'assets/images/hangman05.png',
+		// 'assets/images/hangman04.png',
+		// 'assets/images/hangman03.png',
+		// 'assets/images/hangman02.png',
+		// 'assets/images/hangman01.png'
+		// ] 
 
+  //       //var bodyPic = $("<div>").attr("data-letter", letters[i]).text(letters[i]);
+  //      // $(fridgeMagnet).appendTo("#display");
+  //     	  $(#addBodyPart).html(function(e){
+	 //     var addLimb = e.addLimb;
+  // 		 $("#pic").attr('src', image[addLimb]);
+		// });  
 
 
 

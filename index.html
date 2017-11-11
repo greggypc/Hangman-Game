@@ -3,40 +3,43 @@
 <head>
 	<title>Hangman Game</title>
 	<meta charset="utf-8">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="reset.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-	<script type="text/javascript" src="assets/javascript/game.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	
 </head>
 
 <body onload="layoutGame()">
-
+<div class="container"> 
+	<div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12" >
 	<h1>Hangman</h1>
 
-	<p>Hangman instructions</p>
+	<p>Can you guess the word? <br> Select letters from your keyboard 
+	 to fill in the blanks to reveal the game word. <br> You only have 10 "misses" 
+		before you lose so choose carefully. Good Luck!
+	</p>
 
-	<p >Wins </p>
-	<p id="gameWins"></p>	
+	<p class="wins" id="gameWins"></p>	
 
 	
-	<button type="button" onclick="gameStart()">START!</button>
+	<button type="button" class="btn btn-warning" onclick="gameStart()">START!</button>
+	<p></p>
 	<p id="gameBlanks"></p>
-<!-- 	<script type="text/javascript">
-            won();
-            
-    </script> -->
 
-		
-	<p>Guesses Left</p>
-	<p id="guessCount"></p>
+	<p class="guessCount" id="guessCount"></p>
 
-	<p>Letters Used</p>
-	<p id="junkArray"></p>
-	
-	<div id="addBodyPart">
-		<div id="pic"></div>
-	</div>
+	<!-- <p>Letters Used</p> -->
+	<p class="junk" id="junkArray"></p>
 	
 
+</div>
+</div>
+</div>
 	
+
+<script type="text/javascript" src="assets/javascript/game.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </body>
 </html>
