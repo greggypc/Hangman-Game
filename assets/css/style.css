@@ -2,7 +2,8 @@
 
 body {
 	background-color: #E65915;
-	color: #59002D;
+	color: #000033;
+	margin: 0 auto;
 }
 
 p {
@@ -14,24 +15,33 @@ h1 {
 	font-weight: bold;
 }
 
+#manImg {
+	padding-top: 20px;
+}
+
 
 #gameBlanks {
 	font-size: 30px;
 	font-weight: bold;
+	padding-top: 10px;
 }
 
 .junk {
 	font-size: 24px;
 	font-weight: bold;
+	padding-top: 10px;
 }
 
 .wins {
 	font-size: 24px;
 	font-weight: bold;
+	padding-top: 10px;
+	padding-bottom: 10px;
 }
 
 .guessCount {
 	font-size: 24px;
 	font-weight: bold;
+	padding-top: 10px;
 }
 
