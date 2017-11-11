@@ -1,4 +1,4 @@
-// Hangman Game
+// Hangman Game - 1st javascript
 
 var gameWins = 0;
 var guessCount = 10;
