@@ -5,16 +5,17 @@ var guessCount = 10;
 var isCorrect = true;
 var junkArray = [];
 var image = [
-    "assets/images/hangman-0.png",
-    "assets/images/hangman-01.png",
-    "assets/images/hangman-02.png",
-    "assets/images/hangman-03.png",
-    "assets/images/hangman-04.png",
-    "assets/images/hangman-05.png",
-    "assets/images/hangman-06.png",
-    "assets/images/hangman-07.png",
-    "assets/images/hangman-08.png",
-    "assets/images/hangman-09.png"
+    "../Hangman-Game/assets/images/hangman-0.png",
+    "../Hangman-Game/assets/images/hangman-01.png",
+    "../Hangman-Game/assets/images/hangman-02.png",
+    "../Hangman-Game/assets/images/hangman-03.png",
+    "../Hangman-Game/assets/images/hangman-04.png",
+    "../Hangman-Game/assets/images/hangman-05.png",
+    "../Hangman-Game/assets/images/hangman-06.png",
+    "../Hangman-Game/assets/images/hangman-07.png",
+    "../Hangman-Game/assets/images/hangman-08.png",
+    "../Hangman-Game/assets/images/hangman-09.png",
+    "../Hangman-Game/assets/images/hangman.png"
 ];
 
 function layoutGame() {
@@ -25,10 +26,13 @@ function layoutGame() {
 };
 
 
+
 function gameStart() {
 
     var guessCount = 10;
     var junkArray = [];
+
+
     document.getElementById("guessCount").innerHTML = "Remaining Guesses: " + guessCount;
     document.getElementById("junkArray").innerHTML = "Letters Used: " + junkArray.join(" ");
     var gameWords = ["PTERODACTYL", "JAVASCRIPT", "CANTALOUPE",
@@ -38,7 +42,8 @@ function gameStart() {
     var blanks = gameLetters.map(i => ' _ ');
 
     document.querySelector("#gameBlanks").innerHTML = blanks.join(" ");
-
+   
+    
 
     document.onkeyup = function(event) {
         var userGuess = event.key.toUpperCase();
@@ -64,9 +69,12 @@ function gameStart() {
             audioElement.play();
             gameWins++;
             document.getElementById("gameWins").innerHTML = "Wins: " + gameWins;
+             $("#manImg").attr("src", image[11]);
             gameStart();
             return;
         }
+
+
 
         //You lose
         if (guessCount < 2) {
@@ -74,6 +82,7 @@ function gameStart() {
             var audioElement = document.createElement("audio");
             audioElement.setAttribute("src", "assets/audio/Wha-wha-wha-sound-effect.mp3");
             audioElement.play();
+            $("#manImg").attr("src", image[11]);
             gameStart();
             return;
         }
@@ -99,14 +108,19 @@ function gameStart() {
             audioElement.play();
 
             guessCount--;
-            //swap hangman image for next image
-            var manImg = $("<img>").attr("src", image[guessCount]);
-            $(manImg).html("#manImg");
+           // document.getElementById("#manImg").src = image[guessCount];
 
             document.getElementById("guessCount").innerHTML = "Remaining Guesses: " + guessCount;
-            //$("Remaining Guesses: " + guessCount).appendTo(#guessCount);
-
+            
+           // var manImg = $("<img>").attr("src", image[guessCount]);
+           // $(manImg).html("manImg");
+           
+           $("#manImg").attr("src", image[guessCount]);
+           // document.getElementById("#manImg").innerHTML = image[guessCount];
+            
         }
+
+        
     }; // end keyup function
 } //end main function
 
