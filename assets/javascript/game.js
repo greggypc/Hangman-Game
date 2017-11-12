@@ -30,8 +30,7 @@ function gameStart() {
     "../Hangman-Game/assets/images/hangman-07.png",
     "../Hangman-Game/assets/images/hangman-08.png",
     "../Hangman-Game/assets/images/hangman-09.png",
-    "../Hangman-Game/assets/images/hangman.png"
-	];
+    ];
 
     document.getElementById("guessCount").innerHTML = "Remaining Guesses: " + guessCount;
     document.getElementById("junkArray").innerHTML = "Letters Used: " + junkArray.join(" ");
