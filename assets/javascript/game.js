@@ -4,19 +4,7 @@ var gameWins = 0;
 var guessCount = 10;
 var isCorrect = true;
 var junkArray = [];
-var image = [
-    "../Hangman-Game/assets/images/hangman-0.png",
-    "../Hangman-Game/assets/images/hangman-01.png",
-    "../Hangman-Game/assets/images/hangman-02.png",
-    "../Hangman-Game/assets/images/hangman-03.png",
-    "../Hangman-Game/assets/images/hangman-04.png",
-    "../Hangman-Game/assets/images/hangman-05.png",
-    "../Hangman-Game/assets/images/hangman-06.png",
-    "../Hangman-Game/assets/images/hangman-07.png",
-    "../Hangman-Game/assets/images/hangman-08.png",
-    "../Hangman-Game/assets/images/hangman-09.png",
-    "../Hangman-Game/assets/images/hangman.png"
-];
+
 
 function layoutGame() {
     document.getElementById("guessCount").innerHTML = "Remaining Guesses: " + guessCount;
@@ -31,7 +19,19 @@ function gameStart() {
 
     var guessCount = 10;
     var junkArray = [];
-
+    var image = [
+    "../Hangman-Game/assets/images/hangman-0.png",
+    "../Hangman-Game/assets/images/hangman-01.png",
+    "../Hangman-Game/assets/images/hangman-02.png",
+    "../Hangman-Game/assets/images/hangman-03.png",
+    "../Hangman-Game/assets/images/hangman-04.png",
+    "../Hangman-Game/assets/images/hangman-05.png",
+    "../Hangman-Game/assets/images/hangman-06.png",
+    "../Hangman-Game/assets/images/hangman-07.png",
+    "../Hangman-Game/assets/images/hangman-08.png",
+    "../Hangman-Game/assets/images/hangman-09.png",
+    "../Hangman-Game/assets/images/hangman.png"
+	];
 
     document.getElementById("guessCount").innerHTML = "Remaining Guesses: " + guessCount;
     document.getElementById("junkArray").innerHTML = "Letters Used: " + junkArray.join(" ");
@@ -67,9 +67,12 @@ function gameStart() {
             var audioElement = document.createElement("audio");
             audioElement.setAttribute("src", "assets/audio/Magic-zing-sound-effect.mp3");
             audioElement.play();
+
             gameWins++;
             document.getElementById("gameWins").innerHTML = "Wins: " + gameWins;
-             $("#manImg").attr("src", image[11]);
+
+            //reset hangman image
+            $("#manImg").attr("src", "../Hangman-Game/assets/images/hangman.png");
             gameStart();
             return;
         }
@@ -78,11 +81,12 @@ function gameStart() {
 
         //You lose
         if (guessCount < 2) {
+        	//reset hangman image
+        	$("#manImg").attr("src", "../Hangman-Game/assets/images/hangman.png");
             // Sound effect
             var audioElement = document.createElement("audio");
             audioElement.setAttribute("src", "assets/audio/Wha-wha-wha-sound-effect.mp3");
             audioElement.play();
-            $("#manImg").attr("src", image[11]);
             gameStart();
             return;
         }
@@ -108,17 +112,11 @@ function gameStart() {
             audioElement.play();
 
             guessCount--;
-           // document.getElementById("#manImg").src = image[guessCount];
-
             document.getElementById("guessCount").innerHTML = "Remaining Guesses: " + guessCount;
             
-           // var manImg = $("<img>").attr("src", image[guessCount]);
-           // $(manImg).html("manImg");
-           
-           $("#manImg").attr("src", image[guessCount]);
-           // document.getElementById("#manImg").innerHTML = image[guessCount];
-            
-        }
+            //wrong guess - add limb
+            $("#manImg").attr("src", image[guessCount]);
+         }
 
         
     }; // end keyup function
